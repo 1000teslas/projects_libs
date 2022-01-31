@@ -26,7 +26,7 @@ static inline void *usb_malloc(size_t size)
 	if (ps_malloc_ops && ps_malloc_ops->calloc) {
 		void *ptr;
 		ret = ps_calloc(ps_malloc_ops, 1, size, &ptr);
-		if (!ret) {
+		if (ret) {
 			ZF_LOGF("Malloc error\n");
 		}
 		return ptr;
